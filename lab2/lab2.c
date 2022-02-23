@@ -59,6 +59,10 @@ int main()
 
 
   // initial the screen display
+  if ((err = fbopen()) != 0) {
+    fprintf(stderr, "Error: Could not open framebuffer: %d\n", err);
+    exit(1);
+  }
   initial();
 
   /* Open the keyboard */
@@ -132,11 +136,7 @@ void *network_thread_f(void *ignored)
 
 void initial()
 {
-  if ((err = fbopen()) != 0) {
-    fprintf(stderr, "Error: Could not open framebuffer: %d\n", err);
-    exit(1);
-  }
-
+ 
   /* Draw rows of asterisks across the top and bottom of the screen */
   // Draw the horizontal line that split into receive region and send region
   for (int col = 0 ; col < MAX_COL ; col++) {
