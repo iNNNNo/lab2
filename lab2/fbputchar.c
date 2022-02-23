@@ -118,7 +118,7 @@ void fbputswrap(const char *s, int row, int col, int maxrow, int maxcol)
 
   while (((c = *s++) != 0) && (row < maxrow))
   {
-    while (col < maxcol) fbputchar(c, row, col++)
+    while (col < maxcol) fbputchar(c, row, col++);
     row++;
   }
 }
