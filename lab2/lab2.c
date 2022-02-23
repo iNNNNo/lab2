@@ -139,7 +139,7 @@ void initial()
 
   /* Draw rows of asterisks across the top and bottom of the screen */
   // Draw the horizontal line that split into receive region and send region
-  for (col = 0 ; col < MAX_COL ; col++) {
+  for (int col = 0 ; col < MAX_COL ; col++) {
     fbputchar('*', 0, col);
     fbputchar('-', MAX_ROW_R, col);
     fbputchar('*', MAX_ROW_S, col);
@@ -152,14 +152,14 @@ void initial()
 
 void memRclear()
 {
-  for (col = 0 ; col < MAX_COL ; col++) {
-    for (row = 0 ; row < MAX_ROW_R ; row++) fbputchar(' ', row, col);
+  for (int col = 0 ; col < MAX_COL ; col++) {
+    for (int row = 0 ; row < MAX_ROW_R ; row++) fbputchar(' ', row, col);
   }
 }
 
 void memSclear()
 {
-  for (col = 0 ; col < MAX_COL ; col++) {
-    for (row = MAX_ROW_R+1 ; row < MAX_ROW_S ; row++) fbputchar(' ', row, col);
+  for (int col = 0 ; col < MAX_COL ; col++) {
+    for (int row = MAX_ROW_R+1 ; row < MAX_ROW_S ; row++) fbputchar(' ', row, col);
   }
 }
